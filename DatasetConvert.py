@@ -8,13 +8,13 @@ fulldataset = json.load(open("D:/code/datascience/DatasetTratado.json"))
 n = 50
 smallDataset = []
 for a in fulldataset:
-    smallDataset.append([a["id"], a["title"], a["description"]])
+    smallDataset.append(a["description"].split())
     if (fulldataset.index(a) == n - 1):
         break
 
 print(smallDataset[0])
 
-filetowrite = open("smallDataset.csv", "w")
+filetowrite = open("smallDataset.csv", "w", newline ='')
 writer = csv.writer(filetowrite)
 writer.writerows(smallDataset)
 filetowrite.close()
