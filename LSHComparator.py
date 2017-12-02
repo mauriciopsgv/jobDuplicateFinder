@@ -21,9 +21,8 @@ counter = 0
 for m in minHashs:
     lsh.insert( "m" + str(counter)  , m)
     counter += 1
-
+print("Time que passou ate a query = ", time.time() - start_time)
 result = lsh.query(minHashs[1])
 print("Approximate neighbours with Jaccard similarity > ", t, result)
 print("Number of minHashs ", len(minHashs))
 print("Time que passou = ", time.time() - start_time)
-print(reader[460])
