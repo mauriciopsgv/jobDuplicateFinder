@@ -1,6 +1,8 @@
 import csv
+import time
 from datasketch import MinHash, MinHashLSH
 
+start_time = time.time()
 filetoread = open("smallDataset.csv", "r", newline = '')
 reader = csv.reader(filetoread)
 
@@ -11,7 +13,9 @@ for line in reader:
         minHash.update(word.encode('utf-8'))
     minHashs.append(minHash)
 
-lsh = MinHashLSH(threshold=0.99, num_perm=128)
+t = 0.5
+# threshold 0.7 ainda pode ser melhor, testar como ele perfoma com sinônimos
+lsh = MinHashLSH(threshold=t, num_perm=128)
 
 counter = 0
 for m in minHashs:
@@ -19,8 +23,7 @@ for m in minHashs:
     counter += 1
 
 result = lsh.query(minHashs[1])
-print("Approximate neighbours with Jaccard similarity > 0.5", result)
+print("Approximate neighbours with Jaccard similarity > ", t, result)
 print("Number of minHashs ", len(minHashs))
-print("Number of lines", len(list(reader)))
-print("Minhashes bitches")
-print(minHashs)
+print("Time que passou = ", time.time() - start_time)
+print(reader[460])
