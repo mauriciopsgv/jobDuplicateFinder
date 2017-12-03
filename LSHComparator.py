@@ -22,7 +22,21 @@ for m in minHashs:
     lsh.insert( "m" + str(counter)  , m)
     counter += 1
 print("Time que passou ate a query = ", time.time() - start_time)
-result = lsh.query(minHashs[1])
-print("Approximate neighbours with Jaccard similarity > ", t, result)
-print("Number of minHashs ", len(minHashs))
+results = []
+been_there = []
+printer = []
+for m in minHashs:
+    ind = minHashs.index(m)
+    if ("m" + str(ind)) not in been_there:
+        result = lsh.query(m)
+        results.append(result)
+        for k in result:
+            if k not in been_there:
+                been_there.append(k)
+    for result in results:
+        if ("m" + str(ind)) in result:
+            group = results.index(result)
+    printer.append([ind, group])
+#    print("Approximate neighbours with Jaccard similarity > ", t, ", for", m, result[minHashs.index(m)])
+#result = lsh.query(minHashs[1])
 print("Time que passou = ", time.time() - start_time)
