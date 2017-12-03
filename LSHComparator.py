@@ -37,6 +37,11 @@ for m in minHashs:
         if ("m" + str(ind)) in result:
             group = results.index(result)
     printer.append([ind, group])
+
+final_csv = open("final_output.csv", "w", newline='')
+writer = csv.writer(final_csv)
+writer.writerows(printer)
+final_csv.close()
 #    print("Approximate neighbours with Jaccard similarity > ", t, ", for", m, result[minHashs.index(m)])
 #result = lsh.query(minHashs[1])
 print("Time que passou = ", time.time() - start_time)
