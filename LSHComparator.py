@@ -3,7 +3,7 @@ import time
 from datasketch import MinHash, MinHashLSH
 
 start_time = time.time()
-filetoread = open("smallDataset.csv", "r", newline = '')
+filetoread = open("smallDataset.csv", "r", newline = '', encoding="utf-8")
 reader = csv.reader(filetoread)
 
 minHashs = []
@@ -39,12 +39,13 @@ for m in minHashs:
     for result in results:
         if ("m" + str(ind)) in result:
             group = results.index(result)
-    printer.append([counter, group])
+    #printer.append([counter, group])
+    printer.append([group])
     counter +=1
     if counter % 100 == 0:
         print(len(been_there)," out of ", len(minHashs), " seen.")
 
-final_csv = open("final_output.csv", "w", newline='')
+final_csv = open("final_output.csv", "w", newline='', encoding="utf-8")
 writer = csv.writer(final_csv)
 writer.writerows(printer)
 final_csv.close()

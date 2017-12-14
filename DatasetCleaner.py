@@ -22,6 +22,9 @@ def cleanString(my_string):
 # In[3]:
 
 json_data = json.load(open('Dataset-Treino-Anonimizado-3.json', 'r'))
+# filez = open('ConjuntoTeste.json', 'r', encoding="utf-8")
+# print("Pelo menos abriu")
+# json_data = json.load(filez)
 
 json_to_write = []
 with open('DatasetTratado.json', 'w') as outFile:
