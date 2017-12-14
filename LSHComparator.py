@@ -41,7 +41,8 @@ for m in minHashs:
             group = results.index(result)
     printer.append([counter, group])
     counter +=1
-    print(len(been_there)," out of ", len(minHashs), " seen.")
+    if counter % 100 == 0:
+        print(len(been_there)," out of ", len(minHashs), " seen.")
 
 final_csv = open("final_output.csv", "w", newline='')
 writer = csv.writer(final_csv)

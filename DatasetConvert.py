@@ -3,6 +3,8 @@ import csv
 from pprint import pprint
 
 fulldataset = json.load(open("DatasetTratado.json"))
+#fulldataset = json.load(open("DatasetTestezaoPlease.json"))
+
 
 # Getting n first entrys
 n = 200
@@ -17,3 +19,4 @@ filetowrite = open("smallDataset.csv", "w", newline ='')
 writer = csv.writer(filetowrite)
 writer.writerows(smallDataset)
 filetowrite.close()
+print("Dataset Converted successfully")
