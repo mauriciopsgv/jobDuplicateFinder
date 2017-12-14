@@ -13,7 +13,7 @@ for line in reader:
         minHash.update(word.encode('utf-8'))
     minHashs.append(minHash)
 
-t = 0.5
+t = 0.7
 # threshold 0.7 ainda pode ser melhor, testar como ele perfoma com sinônimos
 lsh = MinHashLSH(threshold=t, num_perm=128)
 
@@ -37,6 +37,7 @@ for m in minHashs:
         if ("m" + str(ind)) in result:
             group = results.index(result)
     printer.append([ind, group])
+    print(len(been_there)," out of ", len(minHashs), " seen.")
 
 final_csv = open("final_output.csv", "w", newline='')
 writer = csv.writer(final_csv)
