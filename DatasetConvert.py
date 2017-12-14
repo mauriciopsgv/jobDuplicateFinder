@@ -2,13 +2,13 @@ import json
 import csv
 from pprint import pprint
 
-fulldataset = json.load(open("D:/code/datascience/DatasetTratado.json"))
+fulldataset = json.load(open("C:\\Users\\Roberto\\Documents\\Python Scripts\\jobDuplicateFinder\\DatasetTratado.json"))
 
 # Getting n first entrys
 n = 200
 smallDataset = []
 for a in fulldataset:
-    smallDataset.append((a["description"].split()).append(a["title"]))
+    smallDataset.append(a["description"].split() + a["title"].split())
 #    if (fulldataset.index(a) == n - 1):
 #        break
 
