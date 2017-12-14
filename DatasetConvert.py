@@ -9,7 +9,7 @@ n = 200
 print(fulldataset[0])
 smallDataset = []
 for a in fulldataset:
-    smallDataset.append((a["description"].split()).append(a["title"]))
+    smallDataset.append(a["description"].split() + a["title"].split())
 #    if (fulldataset.index(a) == n - 1):
 #        break
 
