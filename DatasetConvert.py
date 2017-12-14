@@ -8,7 +8,7 @@ fulldataset = json.load(open("D:/code/datascience/DatasetTratado.json"))
 n = 200
 smallDataset = []
 for a in fulldataset:
-    smallDataset.append(a["description"].split())
+    smallDataset.append((a["description"].split()).append(a["title"]))
 #    if (fulldataset.index(a) == n - 1):
 #        break
 

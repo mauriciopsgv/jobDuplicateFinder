@@ -25,9 +25,12 @@ print("Time que passou ate a query = ", time.time() - start_time)
 results = []
 been_there = []
 printer = []
+counter= 0
 for m in minHashs:
     ind = minHashs.index(m)
-    if ("m" + str(ind)) not in been_there:
+#    if ("m" + str(ind)) not in been_there:
+    if ("m" + str(counter)) not in been_there:
+
         result = lsh.query(m)
         results.append(result)
         for k in result:
@@ -36,7 +39,8 @@ for m in minHashs:
     for result in results:
         if ("m" + str(ind)) in result:
             group = results.index(result)
-    printer.append([ind, group])
+    printer.append([counter, group])
+    counter +=1
 
 final_csv = open("final_output.csv", "w", newline='')
 writer = csv.writer(final_csv)
